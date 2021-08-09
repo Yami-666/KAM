@@ -4,6 +4,6 @@ import kotlin.reflect.KClass
 
 @Target(AnnotationTarget.CLASS)
 @Retention(AnnotationRetention.SOURCE)
-annotation class OneToOneSourceMapper(
+annotation class OneToOneMapperSource(
     val toClass: KClass<*>
 )

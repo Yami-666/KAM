@@ -2,8 +2,7 @@ package dev.syncended.kam_processor
 
 import com.google.auto.service.AutoService
 import com.squareup.kotlinpoet.*
-import dev.syncended.kam_core.OneToOneSourceMapper
-import java.util.stream.Collectors
+import dev.syncended.kam_core.OneToOneMapperSource
 import javax.annotation.processing.*
 import javax.lang.model.element.Element
 import javax.lang.model.element.TypeElement
@@ -22,7 +21,7 @@ class KamProcessor : AbstractProcessor() {
     private var elementUtils: Elements by Delegates.notNull()
 
     override fun getSupportedAnnotationTypes(): MutableSet<String> {
-        return mutableSetOf(OneToOneSourceMapper::class.java.name)
+        return mutableSetOf(OneToOneMapperSource::class.java.name)
     }
 
     override fun init(processingEnv: ProcessingEnvironment) {
@@ -38,7 +37,7 @@ class KamProcessor : AbstractProcessor() {
     ): Boolean {
         messager.printMessage(Diagnostic.Kind.NOTE, "Running KAM processor")
         val oneToOneSourceAnnotations =
-            roundEnv.getElementsAnnotatedWith(OneToOneSourceMapper::class.java)
+            roundEnv.getElementsAnnotatedWith(OneToOneMapperSource::class.java)
         handleOneToOneSourceAnnotation(oneToOneSourceAnnotations)
         return false
     }
@@ -46,7 +45,7 @@ class KamProcessor : AbstractProcessor() {
     private fun handleOneToOneSourceAnnotation(elements: Set<Element>) {
         val fileBuilder = FileSpec.builder(PROCESSOR_PACKAGE, ONE_TO_ONE_SOURCES_FILE)
         elements.forEach { element ->
-            val toPackAndClass = element.getAnnotationClassValue<OneToOneSourceMapper> { toClass }
+            val toPackAndClass = element.getAnnotationClassValue<OneToOneMapperSource> { toClass }
             val (pack, clazz) = toPackAndClass.getPackAndClass()
             val typeElement = elementUtils.getTypeElement(element.asType().toString())
             val fields = typeElement.enclosedElements

@@ -1,8 +1,8 @@
 package dev.syncended.kam_project
 
-import dev.syncended.kam_core.OneToOneSourceMapper
+import dev.syncended.kam_core.OneToOneMapperSource
 
-@OneToOneSourceMapper(
+@OneToOneMapperSource(
     toClass = Model2::class
 )
 data class Model(
