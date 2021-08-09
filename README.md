@@ -1,5 +1,5 @@
 # KAM
-KAM is a **K**otlin **A**uto **M**apper library for simplify basic mappers for your project
+KAM is a **K**otlin **A**uto **M**apper library for simplify basic mappers for your project via reflection and building extension-mappers of your model
 
 ## Current features
 Now library support only `OneToOneSourceMapper` annotation, and returns result into console
