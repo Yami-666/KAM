@@ -2,12 +2,12 @@
 KAM is a **K**otlin **A**uto **M**apper library for simplify basic mappers for your project via reflection and building extension-mappers of your model
 
 ## Current features
-Now library support only `OneToOneSourceMapper` annotation, and returns result into console
+Now library support only `OneToOneMapperSource` annotation, and returns result into console
 
 ### Sample
 Source code:
 ```kotlin
-@OneToOneSourceMapper(
+@OneToOneMapperSource(
     toClass = Model2::class
 )
 data class Model(
@@ -28,6 +28,6 @@ public fun Model.mapToModel2(): Model2 = Model2(
 
 ## A little to do list
 - [ ] Large code refactor
-- [ ] Support `OneToOneTargetMapper`
+- [ ] Support `OneToOneMapperTarget`
 - [ ] Support type converters
 - [ ] Add `IgnoreOnMapping` annotation
