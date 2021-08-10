@@ -11,18 +11,26 @@ Source code:
     toClass = Model2::class
 )
 data class Model(
-    val id: String
+    val id: String,
+    val name: String
 )
 
 data class Model2(
-    val id: String
+    val id: String,
+    val name: String
 )
 ```
 
 Outputs:
 ```kotlin
+package dev.syncended.kam_generated
+
+import dev.syncended.kam_project.Model
+import dev.syncended.kam_project.Model2
+
 public fun Model.mapToModel2(): Model2 = Model2(
-	id = id
+    id = id,
+    name = name
 )
 ```
 
