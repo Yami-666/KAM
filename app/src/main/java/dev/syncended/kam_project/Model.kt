@@ -6,9 +6,11 @@ import dev.syncended.kam_core.OneToOneMapperSource
     toClass = Model2::class
 )
 data class Model(
-    val id: String
+    val id: String,
+    val name: String
 )
 
 data class Model2(
-    val id: String
+    val id: String,
+    val name: String
 )
