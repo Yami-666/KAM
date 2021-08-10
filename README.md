@@ -27,7 +27,10 @@ public fun Model.mapToModel2(): Model2 = Model2(
 ```
 
 ## A little to do list
-- [ ] Large code refactor
+- [x] Large code refactor
+- [ ] Annotation for renaming variable
+- [ ] Analyse target variable type
 - [ ] Support `OneToOneMapperTarget`
 - [ ] Support type converters
 - [ ] Add `IgnoreOnMapping` annotation
+- [ ] Add files output
